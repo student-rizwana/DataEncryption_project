@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Cloud Data Encryption System{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 fade-in">
+                <h1 class="display-3 mb-4">Secure Your Data in the Cloud</h1>
+                <p class="lead mb-4">
+                    Store your files with military-grade encryption. 
+                    Your data is encrypted before it leaves your device - 
+                    only you can access it.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'register' %}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-shield-check me-2"></i>Get Started
+                    </a>
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center mt-5 mt-lg-0 fade-in">
+                <div class="position-relative">
+                    <i class="bi bi-shield-lock-fill" style="font-size: 15rem; color: var(--highlight);"></i>
+                    <div class="position-absolute top-50 start-50 translate-middle" style="font-size: 4rem;">
+                        <i class="bi bi-lock-fill text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 fade-in">Why Choose CloudVault?</h2>
+        <div class="row g-4">
+            <div class="col-md-4 fade-in">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-file-lock2"></i>
+                    </div>
+                    <h4>AES-256 Encryption</h4>
+                    <p class="text-secondary">
+                        Your files are encrypted using AES-256, the same standard 
+                        used by governments and financial institutions worldwide.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-key"></i>
+                    </div>
+                    <h4>RSA Key Exchange</h4>
+                    <p class="text-secondary">
+                        RSA-2048 encryption secures your AES keys, ensuring 
+                        that only you can decrypt your files.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 fade-in">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-cloud-upload"></i>
+                    </div>
+                    <h4>Client-Side Encryption</h4>
+                    <p class="text-secondary">
+                        Files are encrypted on your device before upload. 
+                        We never see your unencrypted data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-5" style="background: var(--primary);">
+    <div class="container">
+        <h2 class="text-center mb-5 fade-in">How It Works</h2>
+        <div class="row g-4">
+            <div class="col-md-3 fade-in">
+                <div class="text-center">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width: 80px; height: 80px; background: var(--highlight); font-size: 2rem; margin-bottom: 1rem;">
+                        1
+                    </div>
+                    <h5>Upload File</h5>
+                    <p class="text-secondary">Select any file from your device to upload</p>
+                </div>
+            </div>
+            <div class="col-md-3 fade-in">
+                <div class="text-center">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width: 80px; height: 80px; background: var(--highlight); font-size: 2rem; margin-bottom: 1rem;">
+                        2
+                    </div>
+                    <h5>Encrypt</h5>
+                    <p class="text-secondary">AES-256 encrypts your file locally</p>
+                </div>
+            </div>
+            <div class="col-md-3 fade-in">
+                <div class="text-center">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width: 80px; height: 80px; background: var(--highlight); font-size: 2rem; margin-bottom: 1rem;">
+                        3
+                    </div>
+                    <h5>Store Safely</h5>
+                    <p class="text-secondary">Encrypted file is stored in the cloud</p>
+                </div>
+            </div>
+            <div class="col-md-3 fade-in">
+                <div class="text-center">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width: 80px; height: 80px; background: var(--highlight); font-size: 2rem; margin-bottom: 1rem;">
+                        4
+                    </div>
+                    <h5>Decrypt & Download</h5>
+                    <p class="text-secondary">Only you can decrypt and access your files</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Security Info Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 fade-in">
+                <h2 class="mb-4">Bank-Level Security</h2>
+                <div class="mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-check-circle-fill text-success me-3" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <h5 class="mb-0">End-to-End Encryption</h5>
+                            <p class="text-secondary mb-0">Your files are encrypted before upload</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-check-circle-fill text-success me-3" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <h5 class="mb-0">Zero-Knowledge Architecture</h5>
+                            <p class="text-secondary mb-0">We cannot see your unencrypted data</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-check-circle-fill text-success me-3" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <h5 class="mb-0">Your Keys, Your Data</h5>
+                            <p class="text-secondary mb-0">Only you hold the decryption keys</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-success me-3" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <h5 class="mb-0">Secure Authentication</h5>
+                            <p class="text-secondary mb-0">PBKDF2 password hashing with salt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center mt-5 mt-lg-0 fade-in">
+                <div class="card p-4">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <h3 class="text-highlight" style="color: var(--highlight);">AES-256</h3>
+                            <p class="text-secondary">File Encryption</p>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-highlight" style="color: var(--highlight);">RSA-2048</h3>
+                            <p class="text-secondary">Key Exchange</p>
+                        </div>
+                    </div>
+                    <hr style="border-color: var(--highlight);">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <h3 class="text-highlight" style="color: var(--success);">PBKDF2</h3>
+                            <p class="text-secondary">Password Hashing</p>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-highlight" style="color: var(--success);">100%</h3>
+                            <p class="text-secondary">Client-Side</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5" style="background: linear-gradient(135deg, var(--highlight), #c73e54);">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Secure Your Files?</h2>
+        <p class="mb-4">Join thousands of users who trust CloudVault for their data security.</p>
+        <a href="{% url 'register' %}" class="btn btn-light btn-lg">
+            <i class="bi bi-rocket-takeoff me-2"></i>Get Started Free
+        </a>
+    </div>
+</section>
+{% endblock %}
+

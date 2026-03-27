@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Download File - CloudVault{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card fade-in">
+                    <div class="card-header text-center py-4">
+                        <h3 class="mb-0">
+                            <i class="bi bi-cloud-download me-2"></i>Download & Decrypt File
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- File Info -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="mb-3">
+                                    <i class="bi bi-file-earmark me-2"></i>{{ file.original_name }}
+                                </h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="mb-1">
+                                            <strong>Size:</strong> {{ file.get_file_size_display }}
+                                        </p>
+                                        <p class="mb-0">
+                                            <strong>Uploaded:</strong> {{ file.upload_date|date:"M d, Y H:i" }}
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-1">
+                                            <strong>Status:</strong> 
+                                            <span class="badge badge-encrypted">
+                                                <i class="bi bi-shield-check me-1"></i>Encrypted
+                                            </span>
+                                        </p>
+                                        <p class="mb-0">
+                                            <strong>Encryption:</strong> AES-256
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Decryption Status -->
+                        <div id="decryptionStatus" class="mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="mb-3">
+                                        <i class="bi bi-shield-lock me-2"></i>Decryption Status
+                                    </h5>
+                                    
+                                    <div class="mb-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Retrieving encrypted file...</span>
+                                            <span id="step1Status"><i class="bi bi-circle"></i></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Decrypting AES key with RSA...</span>
+                                            <span id="step2Status"><i class="bi bi-circle"></i></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Decrypting file...</span>
+                                            <span id="step3Status"><i class="bi bi-circle"></i></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress mt-3">
+                                        <div class="progress-bar" role="progressbar" id="progressBar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Download Button -->
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'download' file.id %}" class="btn btn-success btn-lg">
+                                <i class="bi bi-download me-2"></i>Decrypt & Download
+                            </a>
+                            <a href="{% url 'files' %}" class="btn btn-outline-light">
+                                <i class="bi bi-arrow-left me-2"></i>Back to Files
+                            </a>
+                        </div>
+                        
+                        <!-- Success -->
+                        <div id="successMessage" class="text-center mt-4" style="display: none;">
+                            <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                            <h4 class="mt-3">File Downloaded Successfully!</h4>
+                            <p class="text-secondary">Your file has been decrypted and saved.</p>
+                            <div class="d-flex justify-content-center gap-3 mt-4">
+                                <a href="{% url 'files' %}" class="btn btn-primary">
+                                    <i class="bi bi-folder-fill me-2"></i>View All Files
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Error -->
+                        <div id="errorMessage" class="alert alert-danger mt-4" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/download.js' %}"></script>
+{% endblock %}
+
